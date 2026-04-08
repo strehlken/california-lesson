@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who Went to California First? — A Family History Mystery</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,ital,wght@8..60,0,400;8..60,0,600;8..60,1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F6F3EE; --text: #1A1612; --text2: #4A4239; --muted: #8A8178;
+  --accent: #8B3A2A; --accent2: #C25A3C; --border: #D8D0C4;
+  --gold: #B8860B; --gold-light: #F5E6C8; --river: #4A7C9B;
+  --green: #3A7D44; --panel: #FFFFFF;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.7; font-size: 17px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, #2A2118 0%, #3D2B1A 40%, #5C3D20 100%);
+  color: #F6F3EE; padding: 4rem 2rem 3.5rem; text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 80%, rgba(184,134,11,0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 20%, rgba(74,124,155,0.1) 0%, transparent 50%);
+}
+.hero > * { position: relative; }
+.hero-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15;
+  max-width: 700px; margin: 0 auto 1rem;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  font-size: 1.05rem; color: #C4B8A8; max-width: 520px; margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── CONTENT ── */
+.content { max-width: 740px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+.chapter {
+  margin-top: 3.5rem;
+}
+.chapter-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.chapter h2 {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: 1.65rem; line-height: 1.25; color: var(--text);
+  margin-bottom: 1rem;
+}
+
+p { margin-bottom: 1rem; }
+p + p { margin-top: 0; }
+
+strong { color: var(--accent); font-weight: 600; }
+em { font-style: italic; }
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+  background: var(--gold-light); border-radius: 0 6px 6px 0;
+  font-style: italic; font-size: 1.05rem; color: var(--text2);
+}
+.pull-quote .source {
+  display: block; margin-top: 0.6rem;
+  font-style: normal; font-size: 0.82rem; color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 1.5rem 1.8rem; margin: 1.5rem 0;
+}
+.card-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.6rem;
+}
+.card h3 {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: 1.25rem; margin-bottom: 0.6rem;
+}
+
+/* ── PERSON CARD ── */
+.person-card {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 1.8rem 2rem; margin: 2rem 0;
+  position: relative;
+}
+.person-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--accent2));
+  border-radius: 8px 8px 0 0;
+}
+.person-card h3 {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: 1.5rem; margin-bottom: 0.2rem;
+}
+.person-card .dates {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.88rem;
+  color: var(--muted); margin-bottom: 1rem;
+}
+
+/* ── TIMELINE ── */
+.timeline { margin: 1.5rem 0; padding-left: 1.8rem; border-left: 2px solid var(--border); }
+.timeline-event {
+  position: relative; padding: 0.6rem 0 1.2rem 1.2rem;
+}
+.timeline-event::before {
+  content: ''; position: absolute; left: -1.95rem; top: 0.85rem;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--border); border: 2px solid var(--bg);
+}
+.timeline-event.highlight::before { background: var(--gold); }
+.timeline-event.danger::before { background: var(--accent2); }
+.timeline-year {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.82rem;
+  color: var(--gold); font-weight: 700;
+}
+.timeline-event .place {
+  font-size: 0.88rem; color: var(--muted); margin-top: 0.1rem;
+}
+.timeline-event .detail {
+  font-size: 0.92rem; margin-top: 0.2rem;
+}
+.timeline-event .evidence {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  color: var(--river); margin-top: 0.2rem;
+}
+
+/* ── CLUE BOX ── */
+.clue-box {
+  background: linear-gradient(135deg, #FDF8EE, #F9F0DE);
+  border: 1px solid var(--gold); border-radius: 8px;
+  padding: 1.4rem 1.6rem; margin: 1.8rem 0;
+}
+.clue-box .label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.5rem;
+}
+
+/* ── INTERACTIVE CENSUS ── */
+.census-exhibit {
+  background: #FFFEF8; border: 2px solid var(--border);
+  border-radius: 8px; margin: 2rem 0; overflow: hidden;
+}
+.census-exhibit .exhibit-header {
+  background: var(--text); color: var(--bg); padding: 0.8rem 1.4rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.82rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.census-table-wrap { padding: 1.2rem; overflow-x: auto; }
+.census-table {
+  width: 100%; border-collapse: collapse; font-size: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+.census-table th {
+  background: #F0EBE0; border: 1px solid var(--border);
+  padding: 0.5rem 0.6rem; font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--muted); text-align: left;
+  font-weight: 700; white-space: nowrap;
+}
+.census-table td {
+  border: 1px solid var(--border); padding: 0.45rem 0.6rem;
+  white-space: nowrap;
+}
+.census-table tr.target { background: var(--gold-light); }
+.census-table tr:hover { background: #F5F0E5; }
+
+.census-questions { padding: 0 1.4rem 1.4rem; }
+.census-question {
+  margin-bottom: 1rem; font-size: 0.95rem;
+}
+.census-question .q {
+  font-weight: 600; color: var(--accent); margin-bottom: 0.3rem;
+}
+.reveal-btn {
+  display: inline-block; background: var(--text); color: var(--bg);
+  border: none; padding: 0.35rem 0.9rem; border-radius: 4px;
+  font-family: 'Source Serif 4', serif; font-size: 0.88rem;
+  cursor: pointer; transition: background 0.2s;
+}
+.reveal-btn:hover { background: var(--accent); }
+.answer {
+  display: none; margin-top: 0.4rem; padding: 0.6rem 0.8rem;
+  background: #F0EBE0; border-radius: 4px; font-size: 0.9rem;
+}
+.answer.visible { display: block; }
+
+/* ── MAP ── */
+.journey-map {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden; margin: 2rem 0;
+}
+.journey-map .map-header {
+  padding: 1rem 1.4rem 0.5rem;
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: 1.1rem;
+}
+.map-canvas {
+  width: 100%; height: 340px; position: relative;
+  background: #E8E3DA;
+}
+.map-canvas svg { width: 100%; height: 100%; }
+.map-legend {
+  padding: 0.6rem 1.4rem 1rem;
+  font-size: 0.82rem; color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── CONTEXT BOX ── */
+.context-box {
+  background: linear-gradient(135deg, #EDF3F7, #E4EDF3);
+  border: 1px solid #B8CCd9; border-radius: 8px;
+  padding: 1.4rem 1.6rem; margin: 1.8rem 0;
+}
+.context-box .label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--river); margin-bottom: 0.5rem;
+}
+
+/* ── SEPARATOR ── */
+.sep {
+  height: 1px; background: var(--border); margin: 3rem 0;
+}
+
+/* ── BACK LINK ── */
+.back-link {
+  display: inline-block; margin: 1.5rem 0 0;
+  font-size: 0.88rem; color: var(--muted); text-decoration: none;
+}
+.back-link:hover { color: var(--accent); }
+
+/* ── FOOTER ── */
+.lesson-footer {
+  text-align: center; padding: 2rem; font-size: 0.82rem;
+  color: var(--muted); border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .hero { padding: 3rem 1.2rem 2.5rem; }
+  .content { padding: 0 1rem 3rem; }
+  .person-card { padding: 1.4rem; }
+  .census-table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════ HERO ════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-label">A Family History Lesson</div>
+  <h1>Who in Our Family Went to <em>California</em> First?</h1>
+  <p class="hero-sub">How a genealogist pieces together clues from old records to discover a Gold Rush story hiding in your family tree.</p>
+</div>
+
+<div class="content">
+
+<a class="back-link" href="index.html">&larr; Back to project index</a>
+
+<!-- ════════════════════════ CHAPTER 1 ════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 1</div>
+  <h2>The Question</h2>
+
+  <p>Imagine you're a detective, but instead of solving a crime, you're solving a <em>mystery about your own family</em>. Here's the question:</p>
+
+  <p style="font-size:1.2rem; text-align:center; padding:1rem 0; font-family:'Playfair Display',serif; font-weight:700; color:var(--accent);">
+    Out of the thousands of people in the Strehlke family tree, who was the very first one to set foot in California?
+  </p>
+
+  <p>To answer that, we can't just ask somebody. These events happened more than <strong>170 years ago</strong>. Everyone who was there is long gone. So we have to do what genealogists do: read old documents very carefully, look for clues, and piece the story together like a puzzle.</p>
+
+  <p>The family tree has <strong>5,579 people</strong> in it. Of those, about 880 have some connection to California. But we want the <em>first</em>. And we found him.</p>
+</div>
+
+<!-- ════════════════════════ CHAPTER 2 ════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 2</div>
+  <h2>Meet Henry Sammis</h2>
+
+  <div class="person-card">
+    <h3>Henry Sammis</h3>
+    <div class="dates">Born about 1813, Ashtabula, Ohio &mdash; Died May 6, 1857, Portuguese Flat, California</div>
+    <p>Henry was a farmer from a small town in the northeast corner of Ohio, right near Lake Erie. He married a woman named <strong>Mary Jane Crocker</strong>, who had been born in Fort Edward, New York. Together they raised their children in Ashtabula.</p>
+    <p>His mother, <strong>Sally Eddy</strong>, had died of measles when Henry was only about twelve years old. His father, also named Henry, had moved the family from New Jersey or Pennsylvania out to Ohio when it was still frontier country. The Sammis family was tough. They had to be.</p>
+  </div>
+
+  <p>In <strong>1852</strong>, when Henry was about 39 years old, he made a decision that would change everything. He left his wife and children behind in Ohio and headed west &mdash; all the way to <strong>California</strong>.</p>
+
+  <p>Why? One word:</p>
+
+  <p style="font-size:2rem; text-align:center; font-family:'Playfair Display',serif; font-weight:900; color:var(--gold); padding:0.5rem 0;">
+    GOLD.
+  </p>
+</div>
+
+<!-- ════════════════════════ CHAPTER 3 ════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 3</div>
+  <h2>What Was Happening in California?</h2>
+
+  <p>To understand why Henry left his family and traveled thousands of miles, you need to know what was going on in California in the 1850s.</p>
+
+  <div class="context-box">
+    <div class="label">Historical Context</div>
+    <p style="margin-bottom:0.8rem;">In <strong>January 1848</strong>, a carpenter named James Marshall was building a sawmill for John Sutter along the American River, in the foothills of the Sierra Nevada mountains. He looked down into the water and saw something glinting. It was <strong>gold</strong>.</p>
+    <p style="margin-bottom:0.8rem;">Word spread fast. By 1849, people from all over the world were flooding into California. They were called <strong>"forty-niners."</strong> Farmers left their fields. Sailors abandoned their ships in San Francisco harbor &mdash; hundreds of ships just sat there with nobody on board, because every crew had run off to the gold fields.</p>
+    <p>California had only about 15,000 non-Native people in 1848. By 1852 &mdash; the year Henry Sammis arrived &mdash; there were <strong>over 250,000</strong>. California had just become a state in 1850. It was wild, new, and booming.</p>
+  </div>
+
+  <p>Henry didn't go to the famous gold fields near Sacramento that you usually hear about. He went further north, to <strong>Shasta County</strong>, near the top of the Sacramento River valley. This was rougher, more remote country. The mining camps up there had names like <strong>Dog Town</strong>, <strong>Horsetown</strong>, and <strong>Shenanigan's Gulch</strong>.</p>
+
+  <p>The camp where Henry ended up was called <strong>Portuguese Flat</strong>. It had originally been called Shenanigan's Gulch. It sat about six miles north of Dog Town, right along the Sacramento River Road, near a large village of the <strong>Wintu</strong> people &mdash; the Native Americans who had lived in that valley for thousands of years before the miners came.</p>
+
+  <div class="context-box">
+    <div class="label">What was it like?</div>
+    <p style="margin-bottom:0.8rem;">Mining camps like Portuguese Flat were rough places. Imagine hundreds of men living in canvas tents and rough wooden shacks, working in the creeks and rivers all day, panning gravel for flecks of gold. There were no paved roads, no real stores at first, no doctors nearby. The Sacramento River rushes through steep canyons up in Shasta County &mdash; the water was powerful and cold, fed by snow from Mount Shasta.</p>
+    <p>But there was real gold. Men like Henry could actually find it. And Henry <em>did</em>.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════ CHAPTER 4 ════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 4</div>
+  <h2>What Happened to Henry</h2>
+
+  <p>Henry Sammis spent <strong>five years</strong> working the gold fields in Shasta County. He and a partner were successful &mdash; they found enough gold to be satisfied. By 1857, they were getting ready to <strong>go home to Ohio</strong>.</p>
+
+  <p>But Henry never made it home.</p>
+
+  <div class="pull-quote">
+    Henry Sammis came to California with the Gold Rush in 1852. He and his partner were successful and were preparing to return home to Ohio in 1857 when Henry met his untimely death by drowning in the Sacramento River. The partner did return home, with more money than Henry's letter had led the family to believe.
+    <span class="source">From a family manuscript by Marilyn Harper Humes, sent to the genealogist in 1998</span>
+  </div>
+
+  <p>On <strong>May 6, 1857</strong>, Henry drowned in the Sacramento River at Portuguese Flat. We don't know exactly how. Maybe he was crossing the river. Maybe he slipped on the rocks. The Sacramento River in Shasta County is fast and icy cold, even in May. Many men died in those waters.</p>
+
+  <p>His partner survived, made it back to Ohio, and brought home <strong>more gold than Henry's letters had mentioned</strong>. It seems Henry had been modest &mdash; or careful &mdash; about telling his family how much he'd found. Maybe he wanted to surprise Mary Jane and the children. Maybe he worried about thieves reading the mail.</p>
+
+  <p>Mary Jane Crocker Sammis never remarried. She eventually moved to <strong>Corry, Pennsylvania</strong>, where she lived until she died in 1899, more than forty years after Henry's death in that far-off river.</p>
+
+  <div class="timeline">
+    <div class="timeline-event highlight">
+      <div class="timeline-year">~1813</div>
+      <div class="detail">Henry Sammis born in Ashtabula, Ohio</div>
+    </div>
+    <div class="timeline-event">
+      <div class="timeline-year">1820</div>
+      <div class="place">Painesville, Geauga County, Ohio</div>
+      <div class="detail">Recorded with his father's household in the federal census</div>
+      <div class="evidence">Source: 1820 U.S. Census, Page 121</div>
+    </div>
+    <div class="timeline-event">
+      <div class="timeline-year">~1835</div>
+      <div class="detail">Marries Mary Jane Crocker (born Fort Edward, New York)</div>
+    </div>
+    <div class="timeline-event">
+      <div class="timeline-year">1850</div>
+      <div class="place">Ashtabula, Ohio</div>
+      <div class="detail">Living with Mary Jane and children &mdash; the last census before he left</div>
+      <div class="evidence">Source: 1850 U.S. Census, Roll 659, Page 187a</div>
+    </div>
+    <div class="timeline-event highlight">
+      <div class="timeline-year">1852</div>
+      <div class="place">Portuguese Flat, Shasta County, California</div>
+      <div class="detail">Arrives in California to mine for gold</div>
+      <div class="evidence">Source: Family manuscript by Marilyn Harper Humes</div>
+    </div>
+    <div class="timeline-event danger">
+      <div class="timeline-year">May 6, 1857</div>
+      <div class="place">Portuguese Flat, Shasta County, California</div>
+      <div class="detail">Drowns in the Sacramento River, just as he was preparing to go home</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ CHAPTER 5 ════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 5</div>
+  <h2>How Do We Know All This?</h2>
+
+  <p>This is where genealogy gets really interesting. A genealogist is like a detective who can only use <em>documents</em> as witnesses. They can't interview anyone who was there. So they collect clues from many different kinds of records.</p>
+
+  <p>Here are the clues that tell us Henry's story:</p>
+
+  <div class="clue-box">
+    <div class="label">Clue #1 &mdash; The Census Records</div>
+    <p>Every ten years, the United States government sends people door to door to count everyone and write down their names, ages, where they were born, and where they live. This is called a <strong>census</strong>. Henry shows up in the <strong>1820 census</strong> as a child in his father's house in Ohio, and in the <strong>1850 census</strong> with his own family in Ashtabula. But he is <em>not</em> in the <strong>1860 census</strong> &mdash; because by then he was dead.</p>
+  </div>
+
+  <div class="clue-box">
+    <div class="label">Clue #2 &mdash; The Family Manuscript</div>
+    <p>In <strong>1998</strong>, a woman named <strong>Marilyn Harper Humes</strong> &mdash; a distant relative &mdash; sent the genealogist a handwritten manuscript called <em>"Some of the Descendants of Henry and Mary Jane (Crocker) Sammis."</em> It was labeled "working copy." She had been researching this family for years and had collected oral histories &mdash; stories passed down through the generations. This is where the story of the drowning, the partner, and the gold comes from.</p>
+    <p style="margin-bottom:0;">Think about that: a story told from parent to child, again and again, for <strong>over 140 years</strong>, until Marilyn wrote it down and mailed it to a researcher in 1998.</p>
+  </div>
+
+  <div class="clue-box">
+    <div class="label">Clue #3 &mdash; No California Records for Henry</div>
+    <p>Here's something important: there is <em>no</em> official California record of Henry's death. No death certificate. No grave marker that we know of. In the 1850s, mining camps didn't keep careful records. Men died and were buried on the spot. The genealogist knows Henry died at Portuguese Flat only because of the family stories. This is a reminder that <strong>not all history comes from official documents</strong>. Sometimes the most important clues come from the people who remembered.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Think Like a Genealogist</div>
+    <h3>What sources can we trust?</h3>
+    <p>Genealogists rank their sources. <strong>Primary sources</strong> are records created at the time something happened &mdash; like a census record or a death certificate. <strong>Secondary sources</strong> are things written down later, from memory &mdash; like Marilyn's manuscript.</p>
+    <p>The census records for Henry are primary sources &mdash; very reliable. The drowning story is a secondary source &mdash; we believe it, because the family had no reason to make it up, but we can't prove every detail.</p>
+    <p style="margin-bottom:0;">A good genealogist uses <em>both kinds together</em>, like two hands working to hold up one story.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════ CHAPTER 6 ════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 6</div>
+  <h2>The Second Wave: A Family Crosses the Continent</h2>
+
+  <p>Henry Sammis went alone. But the <em>second</em> group of family members to reach California came as <strong>whole families</strong> &mdash; and their story is completely different.</p>
+
+  <div class="person-card">
+    <h3>Moses Coleman Whitehouse</h3>
+    <div class="dates">Baptized January 10, 1827, Darlaston, Staffordshire, England &mdash; Died October 23, 1874, California</div>
+    <p>Moses was born in the <strong>Black Country</strong> of England &mdash; the industrial heartland near Birmingham, full of coal mines and ironworks and smoke. He left England for <strong>Canada</strong>, settling in Ontario. In 1855, he married an Irish immigrant named <strong>Susan A. Mitchel</strong>. They had a daughter, Emma, born in Canada in 1855.</p>
+    <p>Sometime in the <strong>late 1850s</strong> &mdash; not long after Henry Sammis drowned &mdash; Moses packed up his young family and headed for <strong>San Francisco</strong>. We don't know the exact year. Emma was born in Canada in late 1855, so they left no earlier than 1856. The first hard proof we have of them in California is the <strong>1860 federal census</strong>, which recorded them in San Francisco. So the real answer is: <em>somewhere between 1856 and 1860</em>. (Another Ancestry user's family tree says 1857, but that's not backed by a primary document &mdash; a good reminder that not every date in a family tree is equally trustworthy.)</p>
+  </div>
+
+  <p>Think about how different Moses's California was from Henry's. Henry went to a remote mining camp in the mountains. Moses went to <strong>San Francisco</strong> &mdash; a brand-new city that was exploding with growth.</p>
+
+  <div class="context-box">
+    <div class="label">San Francisco in 1860</div>
+    <p style="margin-bottom:0.8rem;">By 1860, San Francisco was a city of <strong>56,000 people</strong> &mdash; up from about 1,000 just twelve years earlier. It had been rebuilt after devastating fires in 1849, 1850, and 1851. Now it had brick buildings, gas streetlights, newspapers, theaters, and churches. Ships arrived constantly from around the world.</p>
+    <p style="margin-bottom:0.8rem;">It was also chaotic. The city was built on sand dunes and filled-in mudflats. Streets turned to rivers of mud in the rain. The Barbary Coast neighborhood was famous for its rough saloons. And the economy swung wildly &mdash; the Panic of 1857 had just crashed banks and businesses across America.</p>
+    <p style="margin-bottom:0;">Moses arrived in the middle of all this, with a wife and a toddler, fresh from the quiet farms of Ontario.</p>
+  </div>
+
+  <p>We know Moses was in San Francisco by <strong>1860</strong> because he appears in that year's census, living in <strong>District 12</strong> of San Francisco. His wife Susan was there, their daughter Emma (now about 5), and they seem to have been getting by.</p>
+
+  <p>But Moses didn't stay in the city. By <strong>1870</strong>, the family had moved north to <strong>Hot Springs, Napa County</strong> &mdash; the beautiful wine country north of San Francisco. Sadly, Susan died around 1870. Moses remarried a woman named <strong>Rebecca Terrisa Cooper</strong>, a widow from Kentucky whose first husband had also come to San Francisco.</p>
+
+  <p>Moses himself died in 1874, at about age 49. We know this because his <strong>probate record</strong> &mdash; the legal record of what happened to his property after he died &mdash; survives in the Napa County courthouse.</p>
+</div>
+
+<!-- ════════════════════════ CHAPTER 7 ════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 7</div>
+  <h2>Try It Yourself: Read a Census Record</h2>
+
+  <p>Below is a simplified version of what the 1860 census page for San Francisco District 12 looked like. This is the actual record that tells us Moses and his family were there. See if you can answer the questions.</p>
+
+  <div class="census-exhibit">
+    <div class="exhibit-header">1860 United States Federal Census &mdash; San Francisco, District 12</div>
+    <div class="census-table-wrap">
+      <table class="census-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+            <th>Occupation</th>
+            <th>Birthplace</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Murphy</td><td>42</td><td>M</td><td>Laborer</td><td>Ireland</td>
+          </tr>
+          <tr>
+            <td>Margaret Murphy</td><td>38</td><td>F</td><td>&mdash;</td><td>Ireland</td>
+          </tr>
+          <tr class="target">
+            <td>M C Whitehouse</td><td>36</td><td>M</td><td>Painter</td><td>England</td>
+          </tr>
+          <tr class="target">
+            <td>Susan A Whitehouse</td><td>26</td><td>F</td><td>&mdash;</td><td>Ireland</td>
+          </tr>
+          <tr class="target">
+            <td>Emma M Whitehouse</td><td>5</td><td>F</td><td>&mdash;</td><td>Canada</td>
+          </tr>
+          <tr>
+            <td>F H Robinson</td><td>36</td><td>M</td><td>Carpenter</td><td>Indiana</td>
+          </tr>
+          <tr>
+            <td>Theresa Robinson</td><td>33</td><td>F</td><td>&mdash;</td><td>Kentucky</td>
+          </tr>
+          <tr>
+            <td>Alice B Robinson</td><td>9</td><td>F</td><td>&mdash;</td><td>Kentucky</td>
+          </tr>
+          <tr>
+            <td>Susan E Robinson</td><td>8</td><td>F</td><td>&mdash;</td><td>California</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="census-questions">
+      <div class="census-question">
+        <div class="q">1. What was Moses Whitehouse's job in San Francisco?</div>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer</button>
+        <div class="answer"><strong>Painter.</strong> He's listed as "M C Whitehouse" &mdash; census takers often used initials. Moses Coleman Whitehouse was a house painter in 1860s San Francisco, a city that was constantly being built and rebuilt.</div>
+      </div>
+      <div class="census-question">
+        <div class="q">2. Where was each member of the Whitehouse family born? What does that tell you about their journey?</div>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer</button>
+        <div class="answer"><strong>Moses: England. Susan: Ireland. Emma: Canada.</strong> This tells us the family's path across the world &mdash; Moses left England, Susan left Ireland, they met and married in Canada (where Emma was born), and then they all moved to California. Three countries before the little girl was even six years old!</div>
+      </div>
+      <div class="census-question">
+        <div class="q">3. Look at the Robinson family below the Whitehouses. Susan E. Robinson's birthplace says "California." She's 8 years old in 1860. What year would she have been born?</div>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer</button>
+        <div class="answer"><strong>About 1852</strong> &mdash; the same year Henry Sammis arrived in the gold fields! But here's a mystery: another record says Susan was born in <em>Kentucky</em>, not California. Census takers sometimes made mistakes, or families gave wrong answers. Genealogists have to figure out which record to trust. This is one of the puzzles the researcher is still working on.</div>
+      </div>
+      <div class="census-question">
+        <div class="q">4. Notice that the Whitehouses and Robinsons are listed right next to each other. What might that mean?</div>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer</button>
+        <div class="answer">They were probably <strong>neighbors</strong> &mdash; or maybe even living in the same building! Census takers went door to door. People listed close together on the page lived close together on the street. Years later, after both Susan Whitehouse and Francis Robinson died, their surviving spouses &mdash; Moses and Rebecca &mdash; actually <strong>married each other</strong> in 1871. They probably became friends as neighbors in San Francisco in 1860.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ CHAPTER 8 ════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 8</div>
+  <h2>How the Genealogist Found All This</h2>
+
+  <p>Finding Henry Sammis and Moses Whitehouse in California took many different kinds of records. Here's what the genealogist used, and what each kind of record can tell you:</p>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <div class="card-label">Federal Census Records</div>
+    <p>Taken every 10 years: 1820, 1830, 1840, 1850, 1860, and so on. They show who was living where, and with whom. The genealogist used census records from <strong>1820 through 1880</strong> to track these families across Ohio, Kentucky, Canada, California, and Kansas.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <div class="card-label">California Voter Registers (1866&ndash;1898)</div>
+    <p>When men registered to vote, their names were written down with their address and occupation. Francis Robinson shows up in the <strong>1868 Contra Costa County voter register</strong>. This told the genealogist exactly where the family was living between census years.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <div class="card-label">City Directories</div>
+    <p>Like an old-fashioned phone book, but with occupations. Moses Whitehouse is listed in <strong>San Francisco city directories from 1864</strong>. These books were published every year, so they fill in the gaps between the once-a-decade censuses.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <div class="card-label">Probate Records</div>
+    <p>When someone dies, a court decides what happens to their property. Moses Whitehouse's <strong>probate file from 1874</strong> is in the Napa County courthouse. It proves when and where he died &mdash; and probably lists what he owned.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <div class="card-label">Church Records</div>
+    <p>Moses was baptized at <strong>Saint Lawrence Church in Darlaston, Staffordshire, England</strong> on January 10, 1827. The genealogist found this in indexes of old Anglican parish registers. This is how we know he was English.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <div class="card-label">Family Stories and Letters</div>
+    <p>Marilyn Humes's 1998 manuscript &mdash; with its story of Henry, his partner, the gold, and the drowning &mdash; is the <em>only</em> source for the most dramatic part of this whole story. Without a distant cousin writing down what her family had told her, we would only know that Henry existed in Ohio and then died in California. The <em>human</em> story would be lost.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════ CHAPTER 9 ════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 9</div>
+  <h2>Two Very Different Californias</h2>
+
+  <p>So here's what we've found. Two California stories from almost exactly the same time, but <em>completely</em> different:</p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin:1.5rem 0;">
+    <div class="card" style="border-top:3px solid var(--gold);">
+      <h3 style="color:var(--gold); font-size:1.05rem;">Henry Sammis</h3>
+      <p style="font-size:0.92rem;">A <strong>lone man from Ohio</strong> who walked away from his family to dig gold out of the ground in the wilderness. Lived in a tent camp called Shenanigan's Gulch. Found gold. Drowned in the Sacramento River before he could bring it home. Died <strong>1857</strong>.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--river);">
+      <h3 style="color:var(--river); font-size:1.05rem;">Moses Whitehouse</h3>
+      <p style="font-size:0.92rem;">An <strong>English family man</strong> who crossed from England to Canada to San Francisco with his Irish wife and baby daughter. Worked as a house painter. Moved to Napa wine country. Remarried after his wife died. Left behind a probate record. Died <strong>1874</strong>.</p>
+    </div>
+  </div>
+
+  <p>One was drawn by gold. The other was building a new life. One left almost no official records in California. The other left census entries, city directories, voter rolls, and courthouse files. Together, they show us two sides of what California was in the 1850s: a wild frontier <em>and</em> a place where families put down roots.</p>
+</div>
+
+<!-- ════════════════════════ CHAPTER 10 ════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 10</div>
+  <h2>An Unexpected Connection</h2>
+
+  <p>Here's one last twist. Remember Henry Sammis? His mother was Sally Eddy. His father was Henry Sammis Sr. Henry Sr. had other children besides our Henry &mdash; including a daughter named <strong>Martha Sammis</strong>.</p>
+
+  <p>Martha married a man named <strong>Jacob White Jr.</strong> And Martha and Jacob had a daughter named <strong>Letitia White</strong>, born in 1840 in Pennsylvania.</p>
+
+  <p>In <strong>1860</strong> &mdash; just three years after Henry drowned &mdash; his niece Letitia shows up in the census living in <strong>Placer County, California</strong>. Her post office? A place called <strong>Secret Ravine</strong>. That's gold country too, near Auburn, in the Sierra foothills.</p>
+
+  <div class="clue-box">
+    <div class="label">Think About This</div>
+    <p style="margin-bottom:0;">Did Letitia go to California <em>because</em> of her uncle Henry? Did the family know about the gold he'd found? His partner <em>did</em> come home with more money than expected. Did that inspire Henry's niece and her husband to make the same journey? We don't know for sure. But the timing and the family connection make it hard to believe it's a coincidence.</p>
+  </div>
+
+  <p>Letitia didn't stay in California. By 1870, she had moved to <strong>Kansas</strong>, where she lived the rest of her life. Her obituary eventually ran in a Kansas newspaper called <em>The Kansan</em> in November 1904. She never went back west.</p>
+
+  <p>But for a few years in the early 1860s, this young woman from Pennsylvania was living at a place called Secret Ravine, in the same gold country that had already taken her uncle's life.</p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════ WRAP-UP ════════════════════════ -->
+<div class="chapter" style="margin-top:2rem;">
+  <h2>What We Learned</h2>
+
+  <p>From 5,579 people in the family tree, we traced the first California connection to <strong>Henry Sammis</strong>, who arrived in 1852 and died at Portuguese Flat in 1857. The second wave was the <strong>Whitehouse and Robinson families</strong>, who were living in San Francisco by the time of the 1860 census.</p>
+
+  <p>We learned that genealogists are detectives who use:</p>
+
+  <ul style="padding-left:1.5rem; margin-bottom:1rem;">
+    <li><strong>Census records</strong> to track where people lived every ten years</li>
+    <li><strong>City directories and voter registers</strong> to fill in the gaps</li>
+    <li><strong>Church records</strong> to trace people back to the countries they came from</li>
+    <li><strong>Probate records</strong> to learn about people's deaths and property</li>
+    <li><strong>Family letters and stories</strong> to capture the human details no official document preserves</li>
+  </ul>
+
+  <p>And we learned that the same place &mdash; California &mdash; could mean completely different things to different people in the same family, at the same time. For Henry Sammis, it was a gamble. For Moses Whitehouse, it was a new home. For Letitia White, it was a brief chapter. Each of them walked into a California that was being invented as they arrived.</p>
+
+  <p style="font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--accent); margin-top:1.5rem; text-align:center;">
+    Every family tree is full of stories like this.<br>You just have to know where to look.
+  </p>
+</div>
+
+</div><!-- /content -->
+
+<div class="lesson-footer">
+  Built from the Strehlke family tree (GEDCOM files dated July 2023 and March 2026).<br>
+  All facts drawn from the genealogical records and sources cited above.
+</div>
+
+<script>
+function toggleAnswer(btn) {
+  const answer = btn.nextElementSibling;
+  const showing = answer.classList.contains('visible');
+  answer.classList.toggle('visible');
+  btn.textContent = showing ? 'Reveal Answer' : 'Hide Answer';
+}
+</script>
+
+</body>
+</html>
